@@ -43,9 +43,9 @@ Industrial Equipment Software Engineer
 ## 📊 GitHub Stats
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=YOUR_GITHUB_ID&show_icons=true&theme=tokyonight" />
+  <img src="https://github-readme-stats.vercel.app/api?username=guaba98&show_icons=true&theme=tokyonight" />
   <br/>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=YOUR_GITHUB_ID&layout=compact&theme=tokyonight" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=guaba98&layout=compact&theme=tokyonight" />
 </p>
 
 ---
@@ -61,7 +61,7 @@ Industrial Equipment Software Engineer
 ## 👀 Visitor Count
 
 <p align="center">
-  <img src="https://komarev.com/ghpvc/?username=YOUR_GITHUB_ID&style=for-the-badge&color=blue" />
+  <img src="https://komarev.com/ghpvc/?username=guaba98&style=for-the-badge&color=blue" />
 </p>
 
 ---
