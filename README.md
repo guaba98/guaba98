@@ -43,17 +43,17 @@ Industrial Equipment Software Engineer
 ## 📊 GitHub Stats
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=guaba98&show_icons=true&theme=tokyonight" />
+  <img src="https://github-readme-stats.vercel.app/api?username=guaba98&show_icons=true&include_all_commits=true&count_private=true&hide_border=true&cache_seconds=21600" />
   <br/>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=guaba98&layout=compact&theme=tokyonight" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=guaba98&layout=compact&hide_border=true&cache_seconds=21600" />
 </p>
 
 ---
 
-## 🌱 Contribution Snake
+## 📈 Engineering Activity
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Platane/snk/output/github-contribution-grid-snake.svg" />
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=guaba98&theme=github-compact&hide_border=true" />
 </p>
 
 ---
