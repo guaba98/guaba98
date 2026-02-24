@@ -11,6 +11,7 @@ permissions:
 jobs:
   build-cards:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -18,18 +19,64 @@ jobs:
       - name: Create assets folder
         run: mkdir -p assets
 
+      # -----------------------------
+      # GitHub Stats (안전 버전)
+      # -----------------------------
       - name: Fetch GitHub Stats (SVG)
         run: |
-          curl -L --fail \
-            "https://github-readme-stats.vercel.app/api?username=guaba98&show_icons=true&include_all_commits=true&count_private=true&hide_border=true" \
-            -o assets/github-stats.svg
+          URL="https://github-readme-stats.vercel.app/api?username=guaba98&show_icons=true&include_all_commits=true&count_private=true&hide_border=true"
+          TMP="assets/github-stats.svg.tmp"
 
+          echo "Fetching GitHub Stats..."
+
+          if curl -L --fail --retry 8 --retry-delay 5 --retry-all-errors \
+            --connect-timeout 10 --max-time 60 \
+            "$URL" -o "$TMP"; then
+
+            # 파일 크기 검증 (200바이트 이상이면 정상으로 간주)
+            if [ $(wc -c < "$TMP") -gt 200 ]; then
+              mv "$TMP" assets/github-stats.svg
+              echo "GitHub Stats updated."
+            else
+              echo "Downloaded file too small. Keeping previous version."
+              rm -f "$TMP"
+            fi
+
+          else
+            echo "Fetch failed (likely 503). Keeping previous version."
+            rm -f "$TMP" || true
+          fi
+
+      # -----------------------------
+      # Top Languages (안전 버전)
+      # -----------------------------
       - name: Fetch Top Languages (SVG)
         run: |
-          curl -L --fail \
-            "https://github-readme-stats.vercel.app/api/top-langs/?username=guaba98&layout=compact&hide_border=true" \
-            -o assets/top-langs.svg
+          URL="https://github-readme-stats.vercel.app/api/top-langs/?username=guaba98&layout=compact&hide_border=true"
+          TMP="assets/top-langs.svg.tmp"
 
+          echo "Fetching Top Languages..."
+
+          if curl -L --fail --retry 8 --retry-delay 5 --retry-all-errors \
+            --connect-timeout 10 --max-time 60 \
+            "$URL" -o "$TMP"; then
+
+            if [ $(wc -c < "$TMP") -gt 200 ]; then
+              mv "$TMP" assets/top-langs.svg
+              echo "Top Languages updated."
+            else
+              echo "Downloaded file too small. Keeping previous version."
+              rm -f "$TMP"
+            fi
+
+          else
+            echo "Fetch failed (likely 503). Keeping previous version."
+            rm -f "$TMP" || true
+          fi
+
+      # -----------------------------
+      # 변경사항 커밋
+      # -----------------------------
       - name: Commit & Push (if changed)
         run: |
           if git diff --quiet; then
@@ -39,6 +86,7 @@ jobs:
 
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+
           git add assets/*.svg
           git commit -m "chore: update profile cards"
           git push
