@@ -43,15 +43,6 @@ Industrial Equipment Software Engineer
 ## 📊 GitHub Stats
 [![Soyeon's GitHub stats](https://github-readme-stats.vercel.app/api?username=guaba98)](https://github.com/guaba98/github-readme-stats)
 
-
----
-
-## 📈 Engineering Activity
-
-<p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=guaba98&theme=github-compact&hide_border=true" />
-</p>
-
 ---
 
 ## 👀 Visitor Count
